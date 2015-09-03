@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Contact List Mean App</title>
+    <link href="./css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body ng-app="ContactApp">
+<div class="container" ng-controller="ContactCtrl">
+    <h1>Mean Contact List</h1>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Address</th>
+            <th>&nbsp;</th>
+            <th>&nbsp;</th>
+            <th>&nbsp;</th>
+        </tr>
+        <tr>
+            <td><input class="form-control" ng-model="contact.name" placeholder="Name"></td>
+            <td><input class="form-control" ng-model="contact.email" placeholder="Email"></td>
+            <td><input class="form-control" ng-model="contact.phone" placeholder="Phone"></td>
+            <td><input class="form-control" ng-model="contact.address" placeholder="Address"></td>
+
+            <td>
+                <button class="btn btn-primary" ng-click="createContact()">Add</button>
+            </td>
+            <td>
+                <button class="btn btn-primary" ng-click="updateContact()">Update</button>
+            </td>
+            <td>
+                <button class="btn btn-primary" ng-click="clearContact()">Reset</button>
+            </td>
+
+
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr ng-repeat="contact in contacts">
+            <td>{{contact.name}}</td>
+            <td>{{contact.email}}</td>
+            <td>{{contact.phone}}</td>
+            <td>{{contact.address}}</td>
+            <td><button class="btn btn-danger" ng-click="deleteContact(contact._id)">Delete</button></td>
+            <td><button class="btn btn-warning" ng-click="editContact(contact._id)">Edit</button></td>
+            <td>&nbsp;</td>
+        </tr>
+
+        </tbody>
+    </table>
+
+</div>
+</body>
+<script type="application/javascript" src="./js/angular.min.js"></script>
+<script type="application/javascript" src="./js/services/controllers/ContactCtrl.js"></script>
+</html>
